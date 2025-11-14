@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Arshdeep! 🎉</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24, #f0932b, #eb4d4b);
+            background-size: 400% 400%;
+            animation: rainbowShift 5s ease-in-out infinite;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        @keyframes rainbowShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        h1 {
+            font-size: 3em;
+            margin-top: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); }
+            60% { transform: translateY(-15px); }
+        }
+        .section {
+            display: none;
+            margin: 20px auto;
+            max-width: 800px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+        .active { display: block; }
+        button {
+            font-size: 1.2em;
+            padding: 15px 30px;
+            background: #ff4081;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        button:hover {
+            background: #e91e63;
+            transform: scale(1.1);
+        }
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            gap: 10px;
+            margin: 20px auto;
+            width: 320px;
+        }
+        .cell {
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .cell:hover { background: rgba(255, 255, 255, 1); }
+        .meme {
+            margin: 20px;
+            padding: 10px;
+            background: rgba(0,0,0,0.1);
+            border-radius: 10px;
+            animation: fadeIn 1s;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .meme img { max-width: 100%; border-radius: 10px; }
+        .quiz-option { margin: 10px; padding: 10px; background: #4ecdc4; border-radius: 10px; cursor: pointer; }
+        .quiz-option:hover { background: #26a69a; }
+    </style>
+</head>
+<body>
+    <h1>🎂 Happy Birthday, Arshdeep! 🎂</h1>
+    <p>November 15th – Time for games, memes, and making memories! <span style="animation: spin 2s linear infinite;">😜</span></p>
+    
+    <div>
+        <button onclick="showSection('wish')">The Wish 🎁</button>
+        <button onclick="showSection('games')">Exciting Games 🎮</button>
+        <button onclick="showSection('memes')">Friendship Memes 😂</button>
+    </div>
+    
+    <div id="wish" class="section active">
+        <h2>Dear Arshdeep, My Bestie Forever! 💖</h2>
+        <p>On this magical November 15th, I just want to say: You're not just my friend – you're the peanut butter to my jelly, the avocado to my toast, and the 'arsh' to my 'deep' (okay, that pun is as bad as my dance moves, but you get it!).</p>
+        <p>You're the best part of my life, the one who makes me laugh until my sides hurt, and the only person who can turn a boring day into a comedy show. No one else wishes you like this because no one else knows how to be as weirdly wonderful as you are. You're unique, hilarious, and absolutely irreplaceable – like a unicorn that tells dad jokes!</p>
+        <p>Fun fact: Did you know you're so special that even Google can't find someone like you? (I checked – error 404: Best Friend Not Found elsewhere!) May your birthday be filled with cake, chaos, and zero regrets. Here's to more adventures, more laughs, and more you being you!</p>
+        <p>Love you tons, weirdo! Now go eat some cake before it gets 'arsh' (see what I did there?). 🎉🍰</p>
+        <p>From your forever bestie, who thinks you're the coolest person alive. (And yes, cooler than ice cream.)</p>
+    </div>
+    
+    <div id="games" class="section">
+        <h2>Play Some Fun Games! 🎉</h2>
+        
+        <h3>Friendship Quiz: How Well Do You Know Us?</h3>
+        <p id="quiz-question">Question 1: What's our go-to inside joke?</p>
+        <div class="quiz-option" onclick="answerQuiz(1, 'A')">A) Something about cats and chaos</div>
+        <div class="quiz-option" onclick="answerQuiz(1, 'B')">B) Arshdeep's epic dance moves</div>
+        <div class="quiz-option" onclick="answerQuiz(1, 'C')">C) Both – because we're hilarious!</div>
+        <p id="quiz-result"></p>
+        
+        <h3>Tic-Tac-Toe: Beat the Computer!</h3>
+        <div class="game-board" id="board">
+            <div class="cell" onclick="makeMove(0)"></div>
+            <div class="cell" onclick="makeMove(1)"></div>
+            <div class="cell" onclick="makeMove(2)"></div>
+            <div class="cell" onclick="makeMove(3)"></div>
+            <div class="cell" onclick="makeMove(4)"></div>
+            <div class="cell" onclick="makeMove(5)"></div>
+            <div class="cell" onclick="makeMove(6)"></div>
+            <div class="cell" onclick="makeMove(7)"></div>
+            <div class="cell" onclick="makeMove(8)"></div>
+        </div>
+        <p id="game-status">Your turn! Click a square.</p>
+        <button onclick="resetGame()">Reset Game</button>
+    </div>
+    
+    <div id="memes" class="section">
+        <h2>Friendship Memes Just for Us! 😂</h2>
+        <div class="meme">
+            <p><strong>Meme 1:</strong> When Arshdeep says "I'm fine" but I know she's plotting world domination with cake. 🧁👑</p>
+            <img src="https://via.placeholder.com/300x200/ff6b6b/ffffff?text=Besties+Forever" alt="Friendship Meme Placeholder">
+        </div>
+        <div class="meme">
+            <p><strong>Meme 2:</strong> Me: "Let's be productive." Arshdeep: "Or we could meme instead." (Accurate 100% of the time.) 📱😆</p>
+            <img src="https://via.placeholder.com/300x200/4ecdc4/ffffff?text=Laughing+Together" alt="Friendship Meme Placeholder">
+        </div>
+        <div class="meme">
+            <p><strong>Meme 3:</strong> Friendship level: Arshdeep and I – Unbreakable, unstoppable, and full of 'arsh-deep' puns. 💪❤</p>
+            <img src="https://via.placeholder.com/300x200/f9ca24/ffffff?text=Best+Friends" alt="Friendship Meme Placeholder">
+        </div>
+        <div class="meme">
+            <p><strong>Meme 4:</strong> Text-based Meme: [Image of two friends hugging] Top: "Normal friends." Bottom: "Us – laughing at nothing for hours." 😂🤗</p>
+        </div>
+    </div>
+    
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+        
+        // Friendship Quiz
+        let quizScore = 0;
+        let currentQuestion = 1;
+        function answerQuiz(q, ans) {
+            if (q === 1 && ans === 'C') quizScore++;
+            if (q === 1) {
+                document.getElementById('quiz-question').textContent = "Question 2: What's Arshdeep's superpower?";
+                document.querySelectorAll('.quiz-option').forEach((opt, i) => {
+                    opt.textContent = ['A) Making me laugh', 'B) Eating all the snacks', 'C) All of the above'][i];
+                    opt.onclick = () => answerQuiz(2, ['A','B','C'][i]);
+                });
+            } else if (q === 2) {
+                if (ans === 'C') quizScore++;
+                document.getElementById('quiz-result').textContent = Quiz Complete! Score: ${quizScore}/2. You're the best friend ever – even if you cheated on the quiz! 😘;
+            }
+        }
+        
+        // Tic-Tac-Toe
+        let board = ['', '', '', '', '', '', '', '', ''];
+        let currentPlayer = 'X';
+        let gameActive = true;
+        const winConditions = [
+            [0,1,2], [3,4,5], [6,7,8],
+            [0,3,6], [1,4,7], [2,5,8],
+            [0,4,8], [2,4,6]
+        ];
+        
+        function makeMove(index) {
+            if (board[index] !== '' || !gameActive) return;
+            board[index] = currentPlayer;
+            document.getElementById('board').children[index].textContent = currentPlayer;
+            checkWinner();
+            if (gameActive) {
+                currentPlayer = 'O';
+                setTimeout(computerMove, 500);
+            }
+        }
+        
+        function computerMove() {
+            let available = board.map((val, i) => val === '' ? i : null).filter(v => v !== null);
+            if (available.length > 0) {
+                let move = available[Math.floor(Math.random() * available.length)];
+                board[move] = 'O';
+                document.getElementById('board').children[move].textContent = 'O';
+                checkWinner();
+                currentPlayer = 'X';
+            }
+        }
+        
+        function checkWinner() {
+            for (let condition of winConditions) {
+                if (board[condition[0]] && board[condition[0]] === board[condition[1]] && board[condition[1]] === board[condition[2]]) {
+                    document.getElementById('game-status').textContent = ${board[condition[0]]} wins! (But really, Arshdeep, you're the real winner in life!) 🎉;
+                    gameActive = false;
+                    return;
+                }
+            }
+            if (!board.includes('')) {
+                document.getElementById('game-status').textContent = "It's a tie! Just like our friendship – perfectly balanced! 🤝";
+                gameActive = false;
+            }
+        }
+        
+        function resetGame() {
+            board = ['', '', '', '', '', '', '', '', ''];
+            gameActive = true;
+            currentPlayer = 'X';
+            document.querySelectorAll('.cell').forEach(cell => cell.textContent = '');
+            document.getElementById('game-status').textContent = 'Your turn! Click a square.';
+        }
+    </script>
+</body>
+</html>
